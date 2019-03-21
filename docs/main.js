@@ -27,6 +27,7 @@ $inputValue.addEventListener('input', onChangeInput);
 
 function startGame() {
   isGameStarted = true;
+  $inputValue.disabled = true;
   this.classList.add('hide');
   $game.style.background = '#fff';
   $timeHeader.classList.remove('hide');
@@ -38,6 +39,7 @@ function startGame() {
 
     if(time <= 0) {
       clearInterval(interval);
+      $inputValue.disabled = false;
       endGame();
     } else {
       $time.textContent = (time - 0.1).toFixed(1);
